@@ -1,5 +1,7 @@
 # SocialNetwork - Warayana
 
+![warayana](imagenes/logopeq.png)
+
 ### Tema: Educación/feminismo
 
 ![We Can Do It!](imagenes/mujer1.gif)
