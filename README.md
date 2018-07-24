@@ -17,7 +17,7 @@ investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
 de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
 más comentado.
 
-## Introducción:
+## Introducción
 
 Una emprendedora nos ha encargado crear una red social. No nos da mucho detalle
 sobre qué tipo de red social quiere, sólo nos dice que creemos la mejor que
@@ -30,26 +30,26 @@ en los que le gustaría invertir:
 * Salud
 * Energías Renovables
 
-## Objetivo: 
+## Objetivo
 
-Buscar el empoderamiento femenino en el ámbito laboral y de educación.
+Warayana es una red social que esta enfocada en buscar el empoderamiento femenino en el ámbito laboral y de educación.
 Que la población femenina encuentre oportunidades de manera más fácil y directa; oportunidades para desarrollarse, como cursos, seminarios, talleres, empleos.
 También puedan encontrar a más mujeres que tengan los mismos interés  que ellas.
 
-## Público beneficiado:
+## Público beneficiado
 
 Femenino
 
-## Público registrado:  
+## Público registrado  
 
 Ambos sexos
 
-## Problema a resolver: 
+## Problema a resolver
 
 Es difícil encontrar oportunidades para desarrollarse profesionalmente siendo mujer y/o madre. 
 Las causas para este problemática se han analizado desde dos ámbitos. El primero es la discriminación que se da en el mercado laboral que está ampliamente documentada y se da cuando dos trabajadores igualmente productivos reciben compensaciones diferentes únicamente por cuenta de su sexo, y la segunda se enfoca en patrones psicológicos que pueden incidir en el mercado laboral. estas diferencias en patrones psicológicos no se deben sólo a aspectos biológicos, sino también a normas sociales que construyen identidades.
 
-## Introducción:
+## Introducción
 
 Según un [estudio de la INEI](https://peru21.pe/lima/peru-avances-concretos-politicas-igualdad-genero-65462), verificamos los siguientes datos estadisticos:
 
@@ -69,18 +69,6 @@ En este proyecto tendremos la oportunidad de acercarnos más a fondo a los futur
 ```
 
 ![indice de géneros](imagenes/indice.jpg)
-
-
-## Objetivos de aprendizaje:
-
-El objetivo principal de este proyecto es que aprendas a diseñar y construir una
-_interfaz web_ donde podamos visualizar y manipular data.
-
-Esperamos que puedas pensar en el usuario, entender cuál es la mejor manera de visualizar la data según sus necesidades, y plasmar todo eso en tu diseño
-en la web.
-
-Además, este proyecto se debe "resolver" en parejas, por lo que un objetivo
-importante es ganar experiencia en trabajos colaborativos con entrega grupal.
 
 
 ## User Experience Design:
@@ -182,6 +170,8 @@ Usamos los datos coleccionados en la fase de research buscando tendencias e insi
 **IDEACIÓN**
 
 En esta fase buscamos las mejores maneras para ejecutar/desarrollar las funcionalidades definidas en la fase de ideación. Se elaboran sketches y se decide qué propuesta se ejecutará.
+
+*Benchmarck*
 
 ![Benchmarck1](imagenes/womenalia.jpg)
 
