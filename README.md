@@ -1,12 +1,12 @@
 # SocialNetwork - Warayana
 
-![warayana](imagenes/logopeq.png)
+![warayana](imagenes/logovioo.jpg)
 
 ### Tema: Educación/feminismo
 
 ![We Can Do It!](imagenes/mujer1.gif)
 
-## Preámbulo:
+## Preámbulo
 
 Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
 sociales han invadido nuestras vidas. Las amamos u odiamos, y muchxs no podemos
@@ -34,9 +34,7 @@ en los que le gustaría invertir:
 
 ## Objetivo
 
-Warayana es una red social que esta enfocada en buscar el empoderamiento femenino en el ámbito laboral y de educación.
-Que la población femenina encuentre oportunidades de manera más fácil y directa; oportunidades para desarrollarse, como cursos, seminarios, talleres, empleos.
-También puedan encontrar a más mujeres que tengan los mismos interés  que ellas.
+Buscar el empoderamiento femenino en el ámbito laboral y de educación, logrando que más mujeres puedan tener mejores oportunidades de manera más práctica y directa.
 
 ## Público beneficiado
 
@@ -56,15 +54,15 @@ Las causas para este problemática se han analizado desde dos ámbitos. El prime
 Según un [estudio de la INEI](https://peru21.pe/lima/peru-avances-concretos-politicas-igualdad-genero-65462), verificamos los siguientes datos estadisticos:
 
 ```text
-_Las mujeres ganan un promedio de **29.7% menos** que los hombres por el mismo trabajo.
+_Las mujeres ganan un promedio de 29.7% menos que los hombres por el mismo trabajo.
 
 _Por cada hombre existen 3 mujeres analfabetas.
 
 _El ingreso promedio de las mujeres es 1,279 soles mientras que el de los hombres son de 1,901.
-_El **31.9%** de las mujeres mayores de 14 años no tiene ingresos propios.
-_Casi la mitad de las mujeres de las zonas rurales **(47%)** no tiene ingresos propios.
+_El 31.9% de las mujeres mayores de 14 años no tiene ingresos propios.
+_Casi la mitad de las mujeres de las zonas rurales (47%) no tiene ingresos propios.
 
-_ En **73.1%** de los hombres logran culminar sus estudios secundarios mientras que las mujeres son el **61.5%**.
+_ En 73.1% de los hombres logran culminar sus estudios secundarios mientras que las mujeres son el 61.5%.
 
 En este proyecto tendremos la oportunidad de acercarnos más a fondo a los futuros usuarios de la red social que son mujeres que tienes los mismos intereses que es disminiur esta brecha que existe en la desigualdad de género en el ámbito educativo y laboral.
 
@@ -73,9 +71,9 @@ En este proyecto tendremos la oportunidad de acercarnos más a fondo a los futur
 ![indice de géneros](imagenes/indice.jpg)
 
 
-## User Experience Design:
+## User Experience Design
 
-### Proceso de diseño
+## Proceso de diseño
 
 **RESEARCH**
 
@@ -83,13 +81,13 @@ Identificamos las necesidades de los usuarios y buscamos data e inspiración par
 
 **Entrevistas**
 
-**Muestra de la población:** 7 personas quienes constituyen los usuarios primarios y usuarios secundarios(4 chicas estudiantes , 2 joven varones, 1 papa, 1 mama) para que abarquen todos los escenarios posibles
+**Muestra de la población:** 7 personas quienes constituyen los usuarios primarios y usuarios secundarios(4 chicas estudiantes, 2 joven varones y 2 padres de familia) para que abarquen todos los escenarios posibles
 
-**Usuario Primario:** Son todas las mujeres sin límites de edad que quieran encontrar información referente a la educación para que promueva el empoderamiento femenino en ámbitos laborales y de educación.
+**Usuario Primario:** Son todas las mujeres sin límites de edad que quieran encontrar información referente a temas de educación y trabajo. 
 
 **Usuario Secundario:** Son todas las personas sin límites de edad que quieran encontrar información para un persona de sexo femenino que se sienta en la necesidad de encontrar nuevas oportunidades en el sector de la educación.
 
-#### Guía de Entrevista
+*Guía de Entrevista*
 
 **I. Antes de la entrevista:**
 
@@ -126,7 +124,7 @@ Preguntas:
 
 --------------------------------------------------------------
  
-#### Guia de Encuesta
+*Guia de Encuesta*
 
 1. ¿Qué edad tienes? 
 2. ¿Con qué género te identificas?
@@ -169,6 +167,8 @@ d. Otro:
 
 Usamos los datos coleccionados en la fase de research buscando tendencias e insights valiosos para el desarrollo del producto.
 
+--user persona--
+
 **IDEACIÓN**
 
 En esta fase buscamos las mejores maneras para ejecutar/desarrollar las funcionalidades definidas en la fase de ideación. Se elaboran sketches y se decide qué propuesta se ejecutará.
@@ -183,7 +183,12 @@ En esta fase buscamos las mejores maneras para ejecutar/desarrollar las funciona
 
 **PROTOTIPADO**
 
-Elaboramos un prototipo que nos permita probar nuestras ideas con usuarios para saber si estamos resolviendo satisfaciendo sus necesidades con nuestro producto.
+Elaboramos un prototipo que nos permita probar nuestras ideas con usuarios para saber si estamos resolviendo/satisfaciendo sus necesidades con nuestro producto.
+
+*Prototipo de alta fidelidad*
+
+[Para movil](https://marvelapp.com/41553eg/screen/46203888)
+
 
 **USER TESTING**
 
