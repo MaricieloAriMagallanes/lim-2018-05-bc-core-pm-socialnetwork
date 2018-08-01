@@ -1,6 +1,6 @@
 # SocialNetwork - Warayana
 
-![warayana](imagenes/logovioo.jpg)
+![warayana](imagenes/logowarayana.jpg)
 
 ### Tema: Educación/feminismo
 
