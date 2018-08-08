@@ -1,55 +1,15 @@
-# SocialNetwork - Warayana
+# SOCIAL NETWORK - Warayana
 
 ![warayana](imagenes/logowarayana.jpg)
 
-### Tema: Educación/feminismo
-
 ![We Can Do It!](imagenes/mujer1.gif)
 
-## Preámbulo
-
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchxs no podemos
-vivir sin ellas.
-
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
-
-## Introducción
-
-Una emprendedora nos ha encargado crear una red social. No nos da mucho detalle
-sobre qué tipo de red social quiere, sólo nos dice que creemos la mejor que
-podamos, y que luego la convenzamos de lanzarla al mercado. Nos da ciertos temas
-en los que le gustaría invertir:
-
-* Alimentación
-* Feminismo
-* Educación
-* Salud
-* Energías Renovables
-
-## Objetivo
-
-Buscar el empoderamiento femenino en el ámbito laboral y de educación, logrando que más mujeres puedan tener mejores oportunidades de manera más práctica y directa.
-
-## Público beneficiado
-
-Femenino
-
-## Público registrado  
-
-Ambos sexos
-
-## Problema a resolver
+### PREAMBULO
 
 Es difícil encontrar oportunidades para desarrollarse profesionalmente siendo mujer y/o madre. 
 Las causas para este problemática se han analizado desde dos ámbitos. El primero es la discriminación que se da en el mercado laboral que está ampliamente documentada y se da cuando dos trabajadores igualmente productivos reciben compensaciones diferentes únicamente por cuenta de su sexo, y la segunda se enfoca en patrones psicológicos que pueden incidir en el mercado laboral. estas diferencias en patrones psicológicos no se deben sólo a aspectos biológicos, sino también a normas sociales que construyen identidades.
 
-## Introducción
+### INTRODUCCIÓN
 
 Según un [estudio de la INEI](https://peru21.pe/lima/peru-avances-concretos-politicas-igualdad-genero-65462), verificamos los siguientes datos estadisticos:
 
@@ -70,32 +30,55 @@ En este proyecto tendremos la oportunidad de acercarnos más a fondo a los futur
 
 ![indice de géneros](imagenes/indice.jpg)
 
+### DEFINICIÓN DEL PRODUCTO
 
-## User Experience Design
+**Principales usuarios:** 
 
-## Proceso de diseño
+Nuestros principlaes usuarios son mujeres de 18 años a más, solteras o madres de familia que esten en busqueda de superación personal en el ámbito laboral y de educación.
 
-**RESEARCH**
+**Descubriendo necesidades de los usuarios:**
+
+ Encontramos como necesidad la creación de nuevos espacios donde podamos encontrar y compartir recursos, participar de eventos, entre otros, que nos permitan desarrollarnos con libertad y sin prejuicio en todas las profesiones al igual que los hombres, teniendo las mismas oportunidades sin distinción.
+
+**Problema a resolver:**
+
+La situación de desventaja que mantenemos las mujeres hoy en día en ámbitos de educación y laboral.
+
+**Objetivos de los usuarios en relación con el producto:**
+
+* Compartir información relevante como: eventos estudiantiles, convocatorias de trabajo, seminarios gratuitos, etc.
+* Mantener comunicación activa con personas interesadas sobre el tema.
+* Sentirán un equilibrio de oportunidades.
+
+**Verificando que el producto resuelva la problematica:**
+
+Realizamos una encuesta el cual detallaremos líneas abajo, en donde el %90.9 de los posibles usuarios encuestados respondieron que les interesaría ser parte de una red social que empodere a mujeres en ambitos laborales y de educación.
+
+**Cómo nos aseguramos del uso del producto:**
+
+Haremos uso de las redes sociales más usadas por nuestros usuarios para realizar publicidad que impacte y genere recordación de marca mediante influencers representativas al feminismo.
+
+### USER EXPERIENCE DESIGN
+
+**Proceso de diseño**
+
+**Reseach:**
 
 Identificamos las necesidades de los usuarios y buscamos data e inspiración para diseñar nuestro producto.
 
-**Entrevistas**
+*Entrevistas*
 
-**Muestra de la población:** 7 personas quienes constituyen los usuarios primarios y usuarios secundarios(4 chicas estudiantes, 2 joven varones y 2 padres de familia) para que abarquen todos los escenarios posibles
+--------------------------------------------------------------
 
-**Usuario Primario:** Son todas las mujeres sin límites de edad que quieran encontrar información referente a temas de educación y trabajo. 
+GUIA DE ENTREVISTA
 
-**Usuario Secundario:** Son todas las personas sin límites de edad que quieran encontrar información para un persona de sexo femenino que se sienta en la necesidad de encontrar nuevas oportunidades en el sector de la educación.
-
-*Guía de Entrevista*
-
-**I. Antes de la entrevista:**
+I. Antes de la entrevista
 
 Familiarízate con las secciones y tiempos, y preguntas a realizar
 Trata de agendar la entrevist a en un lugar tranquilo y sin ruido.
 Asegúrate de tener tu móvil listo para grabar.
 
-**II. Durante:**
+II. Durante
 
 Buenos (días,tardes, noches)(nombre del entrevistado )¿Cómo estás? ¿Cómo te fue en tu día hoy?
 Bueno durante estos  30 minutos que vamos a pasar juntas quiero que me practiques sobre tus experiencias cuando estas navegando en las redes sociales. Lo que queremos aprender son como son tus hábitos, que es lo que atrae y que es lo primero que buscas.
@@ -103,7 +86,7 @@ Bueno durante estos  30 minutos que vamos a pasar juntas quiero que me practique
 Preguntas:
 
 1.    Cuentame. ¿Qué redes sociales usas? ¿Por qué?
-2.    Califique de 1 a 5  tan importante son las redes sociales para usted
+2.    Califique de 1 a 5 que tan importante son las redes sociales para usted
 3.    Para qué utilizas las redes sociales
 4.    ¿Qué es lo que más te gusta de ellas?
 5.    ¿Cuánto tiempo paras al día en promedio en las redes sociales? %porcentaje de tu día en redes sociales
@@ -124,7 +107,16 @@ Preguntas:
 
 --------------------------------------------------------------
  
-*Guia de Encuesta*
+ **Conclusiones de las entrevistas**
+
+ * Los entrevistados señalaron que la red social que mas usaban era facebook.
+ * Realizan busquedas sobre la carrera que estudian o ejercen.
+ * Sobre el feminismo algunos tienen algun concepto correcto del significado y otros tenian un concepto erroneo.
+ * Se mostraron interesados en la propuesta de una red social como wrayana.
+
+ [Ver entrevistas](https://drive.google.com/drive/folders/10ZcuM8zA0KK0vp67NaK_mPAsLmezZ3sx)
+---------------------------------------------------------------
+GUIA DE ENCUESTA
 
 1. ¿Qué edad tienes? 
 2. ¿Con qué género te identificas?
@@ -163,15 +155,28 @@ b. Subir y bajar información (fotos, videos y textos) relacionados a educación
 c. Organizar, participar de eventos(talleres, meetups, etc).
 d. Otro:
 
-**SÍNTESIS Y DEFINICIÓN**
+-------------------------------------------------------------
+**Conclusiones de las encuestas**
+
+* Son tres las redes sociales más usadas por los usuarios: whatsApp **%87**, Facebook **%70** e instagram **%48**.
+* Entre los dispositivos que más usan son: Celular **%91** y computadora **%9**.
+* El **%100** no conoce alguna red social parecida, sin embargo al **%92** desea pertenecer a esta iniciativa.
+* El **%74** desearía organizar y/o paraticipar de eventos estudiantiles o laborales, mientras que el **%48** quiere subir y bajar información (fotos, videos) y el **%43** desea conocer personas con sus mismos intereses.
+
+ [Puedes ver aquí los resultados](https://docs.google.com/spreadsheets/d/1OXFoqPzarPXW7hcsKQvPC--SVJdbDnwtsCLuFnFZGiM/edit#gid=1020016358)
+
+---------------------------------------------------------------
+**Síntesis y definición:**
 
 Usamos los datos coleccionados en la fase de research buscando tendencias e insights valiosos para el desarrollo del producto.
 
---user persona--
+*user persona*
 
-**IDEACIÓN**
+![User Personaa](imagenes/userPer.png)
 
-En esta fase buscamos las mejores maneras para ejecutar/desarrollar las funcionalidades definidas en la fase de ideación. Se elaboran sketches y se decide qué propuesta se ejecutará.
+**Ideación:**
+
+En esta fase buscamos las mejores maneras para ejecutar/desarrollar las funcionalidades definidas en la fase de ideación.
 
 *Benchmarck*
 
@@ -179,24 +184,49 @@ En esta fase buscamos las mejores maneras para ejecutar/desarrollar las funciona
 
 ![Benchmarck2](imagenes/connect.jpg)
 
-![Benchmarck3](imagenes/social2.jpg)
+*Elección de colores*
 
-**PROTOTIPADO**
+Partimos por elegir el color violeta que es el color representativo del feminismo para luego buscar colores que convinen con esta, para ello se uso la herramienta [Coolers.co](https://coolors.co/)
+
+![Colores](imagenes/colors.jpg)
+
+*Elección de tipografía*
+
+Elegimos Montserrat ya que es una tipografía moderna y bastante neutra, adaptandose muy bien en cualquier situación.
+
+![tipografía](imagenes/Montserrat.jpg)
+
+**Prototipado:**
 
 Elaboramos un prototipo que nos permita probar nuestras ideas con usuarios para saber si estamos resolviendo/satisfaciendo sus necesidades con nuestro producto.
 
+*Prototipo de baja fidelidad*
+
+![Sketch](imagenes/sketch.jpg)
+
 *Prototipo de alta fidelidad*
 
-[Para movil](https://marvelapp.com/41553eg/screen/46203888)
+Para elaborar este prototipo usamos la herramienta [Marvelapp](https://marvelapp.com/).
+
+[Versión Movil](https://marvelapp.com/41553eg/screen/46203888)
+
+[Versión Desktop](https://marvelapp.com/3b9ba2a/screen/46390107)
+
+![Prototipo](imagenes/sreenpro.jpg)
 
 
-**USER TESTING**
+**User Testing:**
 
-Probamos nuestros prototipos con usuarios para obtener su feedback.
+Probamos nuestros prototipo con usuarios para obtener su feedback.
 
+Conclusiones:
 
+* El usuario ubica y reconoce secciones en la pagina web como logeo, perfil y muro.
+* Para su comodidad, prefiere logearse con facebook.
+* Entiende que hay un enlace donde puede ingresar sin registrarse.
+* El usuario pensó que el simbolo del ojo era algun logo o icono y no le dio importancia, piensa que no es util.
 
-
+[Ver el testing](https://drive.google.com/open?id=1gUJdO7M87Zl-2q_AMGMBKWriep4S9tXL)
 
 ## Referencias:
 
