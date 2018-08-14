@@ -16,6 +16,7 @@ const post = document.getElementById("post");
 const posts = document.getElementById("posts");
 const mensaje = document.getElementById("mensaje");
 const mensajepas = document.getElementById("mensajepas");
+let box= document.getElementById('checkbox');
 
 //jquery del sidebar
 $(document).ready(function () {
