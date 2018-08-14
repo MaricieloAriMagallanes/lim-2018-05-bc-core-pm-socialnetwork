@@ -16,13 +16,13 @@ const post = document.getElementById("post");
 const posts = document.getElementById("posts");
 const mensaje = document.getElementById("mensaje");
 const mensajepas = document.getElementById("mensajepas");
-let box= document.getElementById('checkbox');
+const box = document.getElementById("checkbox");
 
 //jquery del sidebar
 $(document).ready(function () {
   $('.sidenav').sidenav();
 });
-
+/////////////777------------------------PUBLICO-----------------
 function writeUserData(userId, name, email, imageUrl) {
   firebase.database().ref('users/' + userId).set({
     username: name,
@@ -94,6 +94,7 @@ btnSave.addEventListener('click', (user) => {
 
     textPost.innerHTML = post.value;
 
+
     btnDelete.addEventListener('click', () => {
       let questions = confirm('¿Deseas eliminar este post?');
       if (questions == true) {
@@ -102,28 +103,20 @@ btnSave.addEventListener('click', (user) => {
 
         while (posts.firstChild) posts.removeChild(posts.firstChild);
 
+
         reload_page();
       } else {
 
       };
     });
+    ///////////////---------------------FIN DE PUBLICO------------------
 
     //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
 
     btnLike.addEventListener('click', () => {
-      //CONDICIONAL QUE SE PUEDE CLICKEAR SIN LIMITES USANDO LOCALSTORAGE
-      if (typeof (Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-          localStorage.clickcount = Number(localStorage.clickcount) + 1;
-          let contador = localStorage.clickcount;
-          btnLike.value = "like (" + contador + ")";
-          console.log(contador);
-          document.getElementById("cantidad").innerHTML = "Me Gusta " + contador;
-          //btnLike.style.backgroundColor="green";
-        }
-      } else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-      }
+      let contador = 0;
+      contador += contador + 1;
+      btnLike.value = "(" + contador + ")";
 
     })
 
@@ -151,9 +144,13 @@ btnSave.addEventListener('click', (user) => {
     contPost.appendChild(btnDelete);
     //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
     contPost.appendChild(btnLike);
+    //padre agarra a los pequeños
     posts.appendChild(contPost);
+
   }
 })
+
+
 
 let administrador = () => {
   firebase.auth().onAuthStateChanged(function (user) {
@@ -185,7 +182,7 @@ let administrador = () => {
 administrador();
 
 box.addEventListener("change", () => {
-  if (box.checked == true) {
+  if (box.checked === true) {
     posts.classList.add("hiden");
     postsPrivados.classList.remove("hiden");
 
@@ -227,6 +224,7 @@ box.addEventListener("change", () => {
     textPost.setAttribute("id", newPost);
 
     textPost.innerHTML = post.value;
+
 
     btnDelete.addEventListener('click', () => {
       let questions = confirm('¿Deseas eliminar este post?');
@@ -285,6 +283,7 @@ box.addEventListener("change", () => {
     postsPrivados.classList.add("hiden");
   }
 });
+
 btnSignin.addEventListener('click', () => {
   firebase.auth().signInWithEmailAndPassword(email.value, password.value)
     .then(function () {
