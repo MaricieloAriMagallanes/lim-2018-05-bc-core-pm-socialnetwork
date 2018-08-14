@@ -1,70 +1,68 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Registro de Warayana</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Registro de Warayana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="materialize.min.css"  media="screen,projection"/>
-<link rel="stylesheet" href="register.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="materialize.min.css" media="all" />
+  <link rel="stylesheet" href="register.css">
 </head>
-<body>
-<div class="container">
-  <div class="row">
-    <div class="col s12 m6 offset-m3">
-      inicio
-      <div class="img">
-        <img alt="frase de warayana" class ="responsive-img" src="img/letrita.png">
-      </div>
 
-    <form class="col s12">
-       <div class="row">
-         <div class="input-field col s12">
-           <i class="material-icons prefix">account_circle</i>
-          <input id="usuario" type="text" class="validate" placeholder="Usuario">
-         </div>
-         <div class="input-field col s12">
-           <i class="material-icons prefix">email</i>
-           <input id="email" type="email" class="validate" placeholder="Email" required>
-           <div class="mensaje" id="mensaje"></div>
-         </div>
-         <div class="input-field col s12">
-           <i class="material-icons prefix">https</i>
-           <input id="password" type="password" class="validate" placeholder="Contraseña" required>
-           <div class="mensaje" id="mensajep"></div>
-         </div>
-         <div class="input-field col s12">
-            <i class="material-icons prefix">https</i>
-            <input id="passwordConfirm" type="password" class="validate" placeholder="Confirmar contraseña" required>
-            <div class="mensaje" id="mensajep"></div>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+
+        <div class="img">
+          <img alt="frase de warayana" class="responsive-img" src="img/letrita.png">
         </div>
-        <div class="input-field col s12">
-          <input type="button" id="btnRegister" class="btn botones" value="UNIRME">
-          <a href="index.html" class="btn botones">Iniciar Sesión</a>
-        </div>
-       </div>
-     </form>
-fin
-</div>
-</div>
-</div>
-<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAzG6uUXhx64G13v2riyBK40RYD9i2DVS4",
-        authDomain: "fire-prueba-lab.firebaseapp.com",
-        databaseURL: "https://fire-prueba-lab.firebaseio.com",
-        projectId: "fire-prueba-lab",
-        storageBucket: "fire-prueba-lab.appspot.com",
-        messagingSenderId: "546606427749"
-      };
-      firebase.initializeApp(config);
-    </script>
-<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="materialize.min.js"></script>
-<script src="register.js"></script>
+
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="usuario" type="text" class="validate" placeholder="Usuario">
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">email</i>
+              <input id="email" type="email" class="validate" placeholder="Email" required>
+              <div class="mensaje" id="mensaje"></div>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">https</i>
+              <input id="password" type="password" class="validate" placeholder="Contraseña" required>
+              <div class="mensaje" id="mensajep"></div>
+            </div>
+            <div class="input-field col s12">
+              <input type="button" id="btnRegister" class="btn botones" value="UNIRME">
+              <a href="index.html" class="btn botones">Iniciar Sesión</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAzG6uUXhx64G13v2riyBK40RYD9i2DVS4",
+      authDomain: "fire-prueba-lab.firebaseapp.com",
+      databaseURL: "https://fire-prueba-lab.firebaseio.com",
+      projectId: "fire-prueba-lab",
+      storageBucket: "fire-prueba-lab.appspot.com",
+      messagingSenderId: "546606427749"
+    };
+    firebase.initializeApp(config);
+
+  </script>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="materialize.min.js"></script>
+  <script src="register.js"></script>
 </body>
+
 </html>
