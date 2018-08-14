@@ -114,9 +114,19 @@ btnSave.addEventListener('click', (user) => {
     //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
 
     btnLike.addEventListener('click', () => {
-      let contador = 0;
-      contador += contador + 1;
-      btnLike.value = "(" + contador + ")";
+      //CONDICIONAL QUE SE PUEDE CLICKEAR SIN LIMITES USANDO LOCALSTORAGE
+      if (typeof (Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+          localStorage.clickcount = Number(localStorage.clickcount) + 1;
+          let contador = localStorage.clickcount;
+          btnLike.value = "like (" + contador + ")";
+          console.log(contador);
+          document.getElementById("cantidad").innerHTML = "Me Gusta " + contador;
+          //btnLike.style.backgroundColor="green";
+        }
+      } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+      }
 
     })
 
@@ -243,11 +253,20 @@ box.addEventListener("change", () => {
     ///////////////---------------------FIN DE PUBLICO------------------
 
     //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
-
     btnLike.addEventListener('click', () => {
-      let contador = 0;
-      contador += contador + 1;
-      btnLike.value = "(" + contador + ")";
+      //CONDICIONAL QUE SE PUEDE CLICKEAR SIN LIMITES USANDO LOCALSTORAGE
+      if (typeof (Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+          localStorage.clickcount = Number(localStorage.clickcount) + 1;
+          let contador = localStorage.clickcount;
+          btnLike.value = "like (" + contador + ")";
+          console.log(contador);
+          document.getElementById("cantidad").innerHTML = "Me Gusta " + contador;
+          //btnLike.style.backgroundColor="green";
+        }
+      } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+      }
 
     })
 
