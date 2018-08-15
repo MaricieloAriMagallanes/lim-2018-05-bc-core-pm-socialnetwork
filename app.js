@@ -82,6 +82,8 @@ btnSave.addEventListener('click', (user) => {
     var textLike = document.createTextNode("favorite")
     iconLike.appendChild(textLike);
     btnLike.appendChild(iconLike);
+    //creamos el div del like---------------------------------------------------------------------------
+    var resp = document.createElement('span');
 
     //nombre
     var authorPost = document.createElement("p");
@@ -114,9 +116,19 @@ btnSave.addEventListener('click', (user) => {
     //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
 
     btnLike.addEventListener('click', () => {
-      let contador = 0;
-      contador += contador + 1;
-      btnLike.value = "(" + contador + ")";
+      if (typeof (Storage) !== "undefined") {
+
+        if (localStorage.clickcount) {
+          localStorage.clickcount = Number(localStorage.clickcount) + 1;
+          let contador = localStorage.clickcount;
+          btnLike.value = "like (" + contador + ")";
+          btnLike.style.backgroundColor = "green";
+          console.log(contador);
+          resp.innerHTML = contador;
+        }
+      } else {
+        resp.innerHTML = "Sorry, your browser does not support web storage...";
+      }
 
     })
 
@@ -144,6 +156,8 @@ btnSave.addEventListener('click', (user) => {
     contPost.appendChild(btnDelete);
     //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
     contPost.appendChild(btnLike);
+    //resultado de la umatoria de loslikes-----------------------------------------------------
+    contPost.appendChild(resp);
     //padre agarra a los pequeños
     posts.appendChild(contPost);
 
@@ -183,101 +197,117 @@ administrador();
 
 box.addEventListener("change", () => {
   if (box.checked === true) {
-    posts.classList.add("hiden");
-    postsPrivados.classList.remove("hiden");
+    if (box.checked === "") {
+      M.toast({
+        html: 'No puedes publicar campos vacios'
+      });
+    } else {
+      posts.classList.add("hiden");
+      postsPrivados.classList.remove("hiden");
 
-    var userEmail = firebase.auth().currentUser.email;
-    var userId = firebase.auth().currentUser.uid;
-    const newPost = writeNewPost(userId, post.value);
+      var userEmail = firebase.auth().currentUser.email;
+      var userId = firebase.auth().currentUser.uid;
+      const newPost = writeNewPost(userId, post.value);
 
-    var btnUpdate = document.createElement("a");
-    btnUpdate.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
-    var iconUpdate = document.createElement("i");
-    iconUpdate.setAttribute("class", "large material-icons black-text")
-    var textUpdate = document.createTextNode("create")
-    iconUpdate.appendChild(textUpdate);
-    btnUpdate.appendChild(iconUpdate);
+      var btnUpdate = document.createElement("a");
+      btnUpdate.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+      var iconUpdate = document.createElement("i");
+      iconUpdate.setAttribute("class", "large material-icons black-text")
+      var textUpdate = document.createTextNode("create")
+      iconUpdate.appendChild(textUpdate);
+      btnUpdate.appendChild(iconUpdate);
 
-    var btnDelete = document.createElement("a");
-    btnDelete.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
-    var iconDelete = document.createElement("i");
-    iconDelete.setAttribute("class", "large material-icons black-text")
-    var textDelete = document.createTextNode("delete")
-    iconDelete.appendChild(textDelete);
-    btnDelete.appendChild(iconDelete);
-    //Creamos los botones de like
-    var btnLike = document.createElement("a");
-    btnLike.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
-    var iconLike = document.createElement("i");
-    iconLike.setAttribute("class", "large material-icons red-text")
-    var textLike = document.createTextNode("favorite")
-    iconLike.appendChild(textLike);
-    btnLike.appendChild(iconLike);
+      var btnDelete = document.createElement("a");
+      btnDelete.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+      var iconDelete = document.createElement("i");
+      iconDelete.setAttribute("class", "large material-icons black-text")
+      var textDelete = document.createTextNode("delete")
+      iconDelete.appendChild(textDelete);
+      btnDelete.appendChild(iconDelete);
+      //Creamos los botones de like
+      var btnLike = document.createElement("a");
+      btnLike.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+      var iconLike = document.createElement("i");
+      iconLike.setAttribute("class", "large material-icons red-text")
+      var textLike = document.createTextNode("favorite")
+      iconLike.appendChild(textLike);
+      btnLike.appendChild(iconLike);
+      //conteo de likes
+      var resp = document.createElement('span');
 
-    //nombre
-    var authorPost = document.createElement("p");
-    var nameAuthor = document.createTextNode(`${userEmail}`)
-    authorPost.appendChild(nameAuthor);
-    //Aqui acabamos la creacion de botones de like
-    var contPost = document.createElement('div');
-    var textPost = document.createElement('textarea')
-    textPost.setAttribute("id", newPost);
+      //nombre
+      var authorPost = document.createElement("p");
+      var nameAuthor = document.createTextNode(`${userEmail}`)
+      authorPost.appendChild(nameAuthor);
+      //Aqui acabamos la creacion de botones de like
+      var contPost = document.createElement('div');
+      var textPost = document.createElement('textarea')
+      textPost.setAttribute("id", newPost);
 
-    textPost.innerHTML = post.value;
-
-
-    btnDelete.addEventListener('click', () => {
-      let questions = confirm('¿Deseas eliminar este post?');
-      if (questions == true) {
-        firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
-        firebase.database().ref().child('posts/' + newPost).remove();
-
-        while (posts.firstChild) posts.removeChild(posts.firstChild);
+      textPost.innerHTML = post.value;
 
 
-        reload_page();
-      } else {
+      btnDelete.addEventListener('click', () => {
+        let questions = confirm('¿Deseas eliminar este post?');
+        if (questions == true) {
+          firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
+          firebase.database().ref().child('posts/' + newPost).remove();
 
-      };
-    });
-    ///////////////---------------------FIN DE PUBLICO------------------
+          while (posts.firstChild) posts.removeChild(posts.firstChild);
 
-    //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
 
-    btnLike.addEventListener('click', () => {
-      let contador = 0;
-      contador += contador + 1;
-      btnLike.value = "(" + contador + ")";
+          reload_page();
+        } else {
 
-    })
+        };
+      });
 
-    //FIN DE LOS BOTONES
+      //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
+      btnLike.addEventListener('click', () => {
+        //CONDICIONAL QUE SE PUEDE CLICKEAR SIN LIMITES USANDO LOCALSTORAGE
+        if (typeof (Storage) !== "undefined") {
+          if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount) + 1;
+            let contador = localStorage.clickcount;
+            btnLike.value = "like (" + contador + ")";
+            btnLike.style.backgroundColor = "green";
+            console.log(contador);
+            resp.innerHTML = contador;
+          }
+        } else {
+          resp.innerHTML = "Sorry, your browser does not support web storage...";
+        }
 
-    btnUpdate.addEventListener('click', () => {
-      const newUpdate = document.getElementById(newPost);
-      const nuevoPost = {
-        body: newUpdate.value,
-      };
+      })
 
-      var updatesUser = {};
-      var updatesPost = {};
+      //FIN DE LOS BOTONES
 
-      updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
-      updatesPost['/posts/' + newPost] = nuevoPost;
+      btnUpdate.addEventListener('click', () => {
+        const newUpdate = document.getElementById(newPost);
+        const nuevoPost = {
+          body: newUpdate.value,
+        };
 
-      firebase.database().ref().update(updatesUser);
-      firebase.database().ref().update(updatesPost);
-    });
+        var updatesUser = {};
+        var updatesPost = {};
 
-    contPost.appendChild(authorPost);
-    contPost.appendChild(textPost);
-    contPost.appendChild(btnUpdate);
-    contPost.appendChild(btnDelete);
-    //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
-    contPost.appendChild(btnLike);
-    //padre agarra a los pequeños
-    postsPrivados.appendChild(contPost);
+        updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+        updatesPost['/posts/' + newPost] = nuevoPost;
 
+        firebase.database().ref().update(updatesUser);
+        firebase.database().ref().update(updatesPost);
+      });
+
+      contPost.appendChild(authorPost);
+      contPost.appendChild(textPost);
+      contPost.appendChild(btnUpdate);
+      contPost.appendChild(btnDelete);
+      //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
+      contPost.appendChild(btnLike);
+      contPost.appendChild(resp);
+      //padre agarra a los pequeños
+      postsPrivados.appendChild(contPost);
+    }
   } else if (box.checked == false) {
     posts.classList.remove("hiden");
     postsPrivados.classList.add("hiden");
@@ -340,7 +370,7 @@ btnGoogle.addEventListener('click', () => {
   });
   firebase.auth().signInWithPopup(provider).then(function (result) {
     console.log('Sesion con google')
-    var user = resul.user;
+    var user = result.user;
     writeUserData(user.uid, user.displayName, user.email, user.photoURL);
   }).catch(function (error) {
     console.log(error.code);
@@ -356,14 +386,17 @@ btnFacebook.addEventListener('click', () => {
   provider.setCustomParameters({
     'display': 'popup'
   });
-  firebase.auth().signInWithPopup(provider).then(function (result) {
-    console.log('Logreado con Fb')
-  }).catch(function (error) {
-    console.log(error.code);
-    console.log(error.message);
-    console.log(error.email);
-    console.log(error.credential);
-  });
+  firebase.auth().signInWithPopup(provider)
+    .then(function (result) {
+      let user = result.user;
+      writeUserData(user.uid, user.displayName, user.email, user.photoURL)
+      ///console.log('Logreado con Fb')
+    }).catch(function (error) {
+      console.log(error.code);
+      console.log(error.message);
+      console.log(error.email);
+      console.log(error.credential);
+    });
 })
 
 anonimo.addEventListener('click', () => {
