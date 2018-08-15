@@ -25,3 +25,6 @@ img {
   cursor: pointer;
   margin-left: 20%;
 }
+.botones:hover{
+  background-color:#bc186b;
+}
