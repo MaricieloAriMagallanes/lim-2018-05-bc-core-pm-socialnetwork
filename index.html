@@ -24,7 +24,7 @@
           <div class="img">
             <img alt="logo de warayana" class="responsive-img" src="img/logowarayana.png">
           </div>
-          <!--VAMOS A REALIZAR EL FORMULARIO CON ESTILO DE MATERIALIZE-->
+          <!--VAMOS A REALIZAR EL FORMULARIO CON ESTILO DE MATERIALIZEresp-->
           <div class="input-field">
             <i class="material-icons prefix">email</i>
             <input id="email" type="email" class="validate" placeholder="Email" required>
@@ -140,35 +140,30 @@
         <!--FINAL DE NOTIFICACION-->
         <div id="posts" class="hiden">
           <h4 class="black-text">PUBLICACIONES</h4>
-          <div id="cantidad">
-          </div>
         </div>
-          <div id="postsPrivados" class="hiden">
-            <h1>Privados</h1>
-          </div>
-          <br>
-          <input type="button" id="btnLogout3" class="btn botonmodelo" value="Cerrar Sesión">
-          <br>
-      
+        <div id="postsPrivados" class="hiden">
+          <h4 class="black-text">PRIVADOS</h4>
+        </div>
       </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAzG6uUXhx64G13v2riyBK40RYD9i2DVS4",
-        authDomain: "fire-prueba-lab.firebaseapp.com",
-        databaseURL: "https://fire-prueba-lab.firebaseio.com",
-        projectId: "fire-prueba-lab",
-        storageBucket: "fire-prueba-lab.appspot.com",
-        messagingSenderId: "546606427749"
-      };
-      firebase.initializeApp(config);
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAzG6uUXhx64G13v2riyBK40RYD9i2DVS4",
+      authDomain: "fire-prueba-lab.firebaseapp.com",
+      databaseURL: "https://fire-prueba-lab.firebaseio.com",
+      projectId: "fire-prueba-lab",
+      storageBucket: "fire-prueba-lab.appspot.com",
+      messagingSenderId: "546606427749"
+    };
+    firebase.initializeApp(config);
 
-    </script>
-    <script src="jquery-3.3.1.min.js"></script>
-    <script src="materialize.min.js"></script>
-    <script src="app.js"></script>
+  </script>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="materialize.min.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
