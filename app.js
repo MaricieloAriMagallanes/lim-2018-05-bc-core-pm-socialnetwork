@@ -234,6 +234,7 @@ box.addEventListener("change", () => {
       btnLike.appendChild(iconLike);
       //conteo de likes
       var resp = document.createElement('span');
+      resp.setAttribute("id","resp")
 
       //nombre
       var authorPost = document.createElement("p");
