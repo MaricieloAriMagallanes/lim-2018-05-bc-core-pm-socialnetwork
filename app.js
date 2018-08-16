@@ -351,18 +351,6 @@ btnLogout2.addEventListener('click', () => {
   });
 })
 
-btnLogout3.addEventListener('click', () => {
-  firebase.auth().signOut().then(function () {
-    console.log('Cerro Sesion');
-    registro.classList.remove("hiden");
-    wall.classList.add("hiden");
-    bd.classList.add("hiden");
-    posts.classList.add("hiden");
-  }).catch(function (error) {
-    console.log('Error al cerrar Sesion');
-  });
-})
-
 btnGoogle.addEventListener('click', () => {
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.setCustomParameters({
