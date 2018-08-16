@@ -9,7 +9,6 @@ const logout = document.getElementById("logout");
 const btnGoogle = document.getElementById("btnGoogle");
 const btnFacebook = document.getElementById("btnFacebook");
 let username = document.getElementById("user_name");
-const anonimo = document.getElementById("anonimo");
 const bd = document.getElementById("bd");
 const btnSave = document.getElementById("btnSave");
 const post = document.getElementById("post");
@@ -395,14 +394,4 @@ btnFacebook.addEventListener('click', () => {
     console.log(error.email);
     console.log(error.credential);
   });
-})
-
-anonimo.addEventListener('click', () => {
-  firebase.auth().signInAnonymously()
-    .then(function () {
-      console.log('Inicia Sesion')
-    })
-    .catch(function (error) {
-      console.log(error.code, error.message)
-    });
 })
