@@ -9,19 +9,19 @@ const logout = document.getElementById("logout");
 const btnGoogle = document.getElementById("btnGoogle");
 const btnFacebook = document.getElementById("btnFacebook");
 let username = document.getElementById("user_name");
-const anonimo = document.getElementById("anonimo");
 const bd = document.getElementById("bd");
 const btnSave = document.getElementById("btnSave");
 const post = document.getElementById("post");
 const posts = document.getElementById("posts");
 const mensaje = document.getElementById("mensaje");
 const mensajepas = document.getElementById("mensajepas");
+const box = document.getElementById("checkbox");
 
 //jquery del sidebar
 $(document).ready(function () {
   $('.sidenav').sidenav();
 });
-
+/////////////777------------------------PUBLICO-----------------
 function writeUserData(userId, name, email, imageUrl) {
   firebase.database().ref('users/' + userId).set({
     username: name,
@@ -77,10 +77,12 @@ btnSave.addEventListener('click', (user) => {
     var btnLike = document.createElement("a");
     btnLike.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
     var iconLike = document.createElement("i");
-    iconLike.setAttribute("class", "large material-icons red-text")
-    var textLike = document.createTextNode("favorite")
+    iconLike.setAttribute("class", "large material-icons red-text");
+    var textLike = document.createTextNode("favorite");
     iconLike.appendChild(textLike);
     btnLike.appendChild(iconLike);
+    //creamos el div del like---------------------------------------------------------------------------
+    let numeroClick = document.createElement("span");
 
     //nombre
     var authorPost = document.createElement("p");
@@ -93,6 +95,7 @@ btnSave.addEventListener('click', (user) => {
 
     textPost.innerHTML = post.value;
 
+
     btnDelete.addEventListener('click', () => {
       let questions = confirm('¿Deseas eliminar este post?');
       if (questions == true) {
@@ -101,28 +104,19 @@ btnSave.addEventListener('click', (user) => {
 
         while (posts.firstChild) posts.removeChild(posts.firstChild);
 
+
         reload_page();
       } else {
 
       };
     });
+    ///////////////---------------------FIN DE PUBLICO------------------
 
     //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
-
+    let contador = 0;
     btnLike.addEventListener('click', () => {
-      //CONDICIONAL QUE SE PUEDE CLICKEAR SIN LIMITES USANDO LOCALSTORAGE
-      if (typeof (Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-          localStorage.clickcount = Number(localStorage.clickcount) + 1;
-          let contador = localStorage.clickcount;
-          btnLike.value = "like (" + contador + ")";
-          console.log(contador);
-          document.getElementById("cantidad").innerHTML = "Me Gusta " + contador;
-          //btnLike.style.backgroundColor="green";
-        }
-      } else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-      }
+     contador += + 1;
+     numeroClick.innerHTML= contador;
 
     })
 
@@ -150,9 +144,15 @@ btnSave.addEventListener('click', (user) => {
     contPost.appendChild(btnDelete);
     //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
     contPost.appendChild(btnLike);
+    //resultado de la umatoria de loslikes-----------------------------------------------------
+    contPost.appendChild(numeroClick);
+    //padre agarra a los pequeños
     posts.appendChild(contPost);
+
   }
 })
+
+
 
 let administrador = () => {
   firebase.auth().onAuthStateChanged(function (user) {
@@ -182,8 +182,14 @@ let administrador = () => {
   });
 }
 administrador();
+
 box.addEventListener("change", () => {
-  if (box.checked == true) {
+  if (box.checked === true) {
+    if (post.value === "") {
+      M.toast({
+        html: 'No puedes publicar campos vacíos'
+      });
+    } else {
     posts.classList.add("hiden");
     postsPrivados.classList.remove("hiden");
 
@@ -214,6 +220,8 @@ box.addEventListener("change", () => {
     var textLike = document.createTextNode("favorite")
     iconLike.appendChild(textLike);
     btnLike.appendChild(iconLike);
+    //conteo de likes
+    let numeroClick = document.createElement("span");
 
     //nombre
     var authorPost = document.createElement("p");
@@ -226,7 +234,8 @@ box.addEventListener("change", () => {
 
     textPost.innerHTML = post.value;
 
-    btnDelete.addEventListener('click', () => {
+
+    btnDelete.addEventListener('click',() => {
       let questions = confirm('¿Deseas eliminar este post?');
       if (questions == true) {
         firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
@@ -240,14 +249,12 @@ box.addEventListener("change", () => {
 
       };
     });
-    ///////////////---------------------FIN DE PUBLICO------------------
 
     //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
-
+    let contador = 0;
     btnLike.addEventListener('click', () => {
-      let contador = 0;
-      contador += contador + 1;
-      btnLike.value = "(" + contador + ")";
+        contador += + 1;
+        numeroClick.innerHTML= contador;
 
     })
 
@@ -275,14 +282,16 @@ box.addEventListener("change", () => {
     contPost.appendChild(btnDelete);
     //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
     contPost.appendChild(btnLike);
+    contPost.appendChild(numeroClick);
     //padre agarra a los pequeños
     postsPrivados.appendChild(contPost);
-
+   }
   } else if (box.checked == false) {
     posts.classList.remove("hiden");
     postsPrivados.classList.add("hiden");
   }
 });
+
 btnSignin.addEventListener('click', () => {
   firebase.auth().signInWithEmailAndPassword(email.value, password.value)
     .then(function () {
@@ -339,7 +348,7 @@ btnGoogle.addEventListener('click', () => {
   });
   firebase.auth().signInWithPopup(provider).then(function (result) {
     console.log('Sesion con google')
-    var user = resul.user;
+    var user = result.user;
     writeUserData(user.uid, user.displayName, user.email, user.photoURL);
   }).catch(function (error) {
     console.log(error.code);
@@ -355,22 +364,15 @@ btnFacebook.addEventListener('click', () => {
   provider.setCustomParameters({
     'display': 'popup'
   });
-  firebase.auth().signInWithPopup(provider).then(function (result) {
-    console.log('Logreado con Fb')
+  firebase.auth().signInWithPopup(provider)
+  .then(function (result) {
+    let user= result.user;
+    writeUserData(user.uid, user.displayName, user.email, user.photoURL)
+    ///console.log('Logreado con Fb')
   }).catch(function (error) {
     console.log(error.code);
     console.log(error.message);
     console.log(error.email);
     console.log(error.credential);
   });
-})
-
-anonimo.addEventListener('click', () => {
-  firebase.auth().signInAnonymously()
-    .then(function () {
-      console.log('Inicia Sesion')
-    })
-    .catch(function (error) {
-      console.log(error.code, error.message)
-    });
 })

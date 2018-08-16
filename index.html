@@ -24,7 +24,7 @@
           <div class="img">
             <img alt="logo de warayana" class="responsive-img" src="img/logowarayana.png">
           </div>
-          <!--VAMOS A REALIZAR EL FORMULARIO CON ESTILO DE MATERIALIZE-->
+          <!--VAMOS A REALIZAR EL FORMULARIO CON ESTILO DE MATERIALIZEresp-->
           <div class="input-field">
             <i class="material-icons prefix">email</i>
             <input id="email" type="email" class="validate" placeholder="Email" required>
@@ -79,7 +79,7 @@
       <nav>
         <div class="nav-wrapper">
           <a href="#!" class="brand-logo center">
-            <img width="75" height="auto" class="navlogo responsive-img" src="../img/logowarayana.png" alt="logo de warayana">
+            <img width="75" height="auto" class="navlogo responsive-img" src="img/logowarayana.png" alt="logo de warayana">
           </a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger">
             <i class="large navlogo material-icons">menu</i>
@@ -121,8 +121,12 @@
         <!--Base de datos-->
 
         <div id="bd">
-          <textarea name="Publicacion" id="post" class="textarea" cols="30" rows="10" placeholder="Escribe una publicación"></textarea>
-          <input type="button" value="PUBLICAR" id="btnSave" class="btn botonmodelo">
+           <textarea name="Publicacion" id="post" class="textarea" cols="30" rows="10" placeholder="Escribe una publicación"></textarea>
+           <input type="button" value="PUBLICAR" id="btnSave" class="btn botonmodelo">
+           <label for="checkbox">
+            <input type="checkbox" class="filled-in" id="checkbox"></input>
+            <span>Mensajes Privados</span>
+            </label>
         </div>
         <!--like y dislike-->
         <div id="result"></div>
@@ -135,33 +139,35 @@
 
         <!--FINAL DE NOTIFICACION-->
         <div id="posts" class="hiden">
-          <h4 class="black-text">POST</h4>
-          <div id="cantidad">
+          <h4 class="black-text">PUBLICACIONES</h4>
           </div>
-        </div>
-        <br>
-        <input type="button" id="btnLogout3" class="btn botonmodelo" value="Cerrar Sesión">
-        <br>
+          <div id="postsPrivados" class="hiden">
+            <h4 class="black-text">PRIVADOS</h4>  
+          </div>
+          <br>
+          <input type="button" id="btnLogout3" class="btn botonmodelo" value="Cerrar Sesión">
+          <br>
+      
       </div>
     </div>
-  </div>
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyAzG6uUXhx64G13v2riyBK40RYD9i2DVS4",
-      authDomain: "fire-prueba-lab.firebaseapp.com",
-      databaseURL: "https://fire-prueba-lab.firebaseio.com",
-      projectId: "fire-prueba-lab",
-      storageBucket: "fire-prueba-lab.appspot.com",
-      messagingSenderId: "546606427749"
-    };
-    firebase.initializeApp(config);
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAzG6uUXhx64G13v2riyBK40RYD9i2DVS4",
+        authDomain: "fire-prueba-lab.firebaseapp.com",
+        databaseURL: "https://fire-prueba-lab.firebaseio.com",
+        projectId: "fire-prueba-lab",
+        storageBucket: "fire-prueba-lab.appspot.com",
+        messagingSenderId: "546606427749"
+      };
+      firebase.initializeApp(config);
 
-  </script>
-  <script src="jquery-3.3.1.min.js"></script>
-  <script src="materialize.min.js"></script>
-  <script src="app.js"></script>
+    </script>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="materialize.min.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
