@@ -1,0 +1,27 @@
+body {
+  background-image: url("img/color1.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+img {
+  width: 75%;
+  margin-left: 10%;
+}
+
+.material-icons {
+  color: #d0cad8;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.botones {
+  background-color: #e02885;
+  align-content: center;
+  border-radius: 20ch;
+  width: 60%;
+  font-size: 16px;
+  margin: 14px 2px;
+  cursor: pointer;
+  margin-left: 20%;
+}
