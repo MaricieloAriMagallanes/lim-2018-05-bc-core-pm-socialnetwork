@@ -102,10 +102,8 @@ btnSave.addEventListener('click', (user) => {
         firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
         firebase.database().ref().child('posts/' + newPost).remove();
 
-        while (posts.firstChild) posts.removeChild(posts.firstChild);
+        while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
-
-        reload_page();
       } else {
 
       };
@@ -152,8 +150,6 @@ btnSave.addEventListener('click', (user) => {
   }
 })
 
-
-
 let administrador = () => {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -185,11 +181,21 @@ administrador();
 
 box.addEventListener("change", () => {
   if (box.checked === true) {
-    if (post.value === "") {
-      M.toast({
-        html: 'No puedes publicar campos vacíos'
-      });
-    } else {
+    posts.classList.add("hiden");
+    postsPrivados.classList.remove("hiden");
+   
+  } else if (box.checked == false) {
+    posts.classList.remove("hiden");
+    postsPrivados.classList.add("hiden");
+};
+
+
+btnSave2.addEventListener("click", (user)=>{
+  if (post.value === "") {
+    M.toast({
+      html: 'No puedes publicar campos vacíos'
+    });
+  } else {
     posts.classList.add("hiden");
     postsPrivados.classList.remove("hiden");
 
@@ -241,10 +247,8 @@ box.addEventListener("change", () => {
         firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
         firebase.database().ref().child('posts/' + newPost).remove();
 
-        while (posts.firstChild) posts.removeChild(posts.firstChild);
+        while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
-
-        reload_page();
       } else {
 
       };
@@ -286,11 +290,9 @@ box.addEventListener("change", () => {
     //padre agarra a los pequeños
     postsPrivados.appendChild(contPost);
    }
-  } else if (box.checked == false) {
-    posts.classList.remove("hiden");
-    postsPrivados.classList.add("hiden");
-  }
+ 
 });
+})
 
 btnSignin.addEventListener('click', () => {
   firebase.auth().signInWithEmailAndPassword(email.value, password.value)
