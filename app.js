@@ -348,19 +348,34 @@ btnGoogle.addEventListener('click', () => {
 })
 
 btnFacebook.addEventListener('click', () => {
-  var provider = new firebase.auth.FacebookAuthProvider();
-  provider.setCustomParameters({
-    'display': 'popup'
-  });
-  firebase.auth().signInWithPopup(provider)
-  .then(function (result) {
-    let user= result.user;
-    writeUserData(user.uid, user.displayName, user.email, user.photoURL)
-    ///console.log('Logreado con Fb')
-  }).catch(function (error) {
-    console.log(error.code);
-    console.log(error.message);
-    console.log(error.email);
-    console.log(error.credential);
-  });
+ 
+      var provider = new firebase.auth.FacebookAuthProvider();
+      provider.addScope("public_profile")
+      provider.setCustomParameters({
+        'display': 'popup'
+      });
+      firebase.auth().signInWithPopup(provider)
+      .then(function (result) {
+        let token = result.credential.accessToken;
+        let user= result.user
+        let name = result.user.displayName;
+        //cambie de vista
+        registro.classList.add("hiden");
+        wall.classList.remove("hiden");
+        bd.classList.remove("hiden");
+        posts.classList.remove("hiden");
+            username.innerHTML = `Bienvenidx, ${user.displayName}`;
+        writeUserData(user.uid, user.displayName, user.email, user.photoURL)
+        ///console.log('Logreado con Fb')
+      }).catch(function (error) {
+        
+        console.log(error.code);
+        console.log(error.message);
+        console.log(error.email);
+        console.log(error.credential);
+        if(errorCode == "auth/account-exist-with-different-credential"){
+          M.toast({html: "Existe un usuario con el mismo email"});
+        }
+      });
+   
 })
