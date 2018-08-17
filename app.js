@@ -77,12 +77,12 @@ btnSave.addEventListener('click', (user) => {
     var btnLike = document.createElement("a");
     btnLike.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
     var iconLike = document.createElement("i");
-    iconLike.setAttribute("class", "large material-icons red-text")
-    var textLike = document.createTextNode("favorite")
+    iconLike.setAttribute("class", "large material-icons red-text");
+    var textLike = document.createTextNode("favorite");
     iconLike.appendChild(textLike);
     btnLike.appendChild(iconLike);
     //creamos el div del like---------------------------------------------------------------------------
-    var resp = document.createElement('span');
+    let numeroClick = document.createElement("span");
 
     //nombre
     var authorPost = document.createElement("p");
@@ -113,20 +113,10 @@ btnSave.addEventListener('click', (user) => {
     ///////////////---------------------FIN DE PUBLICO------------------
 
     //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
-
+    let contador = 0;
     btnLike.addEventListener('click', () => {
-      if(typeof(Storage) !== "undefined") {
-            
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount)+1;
-            let contador= localStorage.clickcount;
-            btnLike.value ="like (" + contador +")";
-            btnLike.style.backgroundColor="green";
-            console.log(contador);
-            resp.innerHTML =contador;
-        } } else {
-        resp.innerHTML = "Sorry, your browser does not support web storage...";
-    }
+     contador += + 1;
+     numeroClick.innerHTML= contador;
 
     })
 
@@ -155,7 +145,7 @@ btnSave.addEventListener('click', (user) => {
     //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
     contPost.appendChild(btnLike);
     //resultado de la umatoria de loslikes-----------------------------------------------------
-    contPost.appendChild(resp);
+    contPost.appendChild(numeroClick);
     //padre agarra a los pequeños
     posts.appendChild(contPost);
 
@@ -231,7 +221,7 @@ box.addEventListener("change", () => {
     iconLike.appendChild(textLike);
     btnLike.appendChild(iconLike);
     //conteo de likes
-    var resp = document.createElement('span');
+    let numeroClick = document.createElement("span");
 
     //nombre
     var authorPost = document.createElement("p");
@@ -261,19 +251,10 @@ box.addEventListener("change", () => {
     });
 
     //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
+    let contador = 0;
     btnLike.addEventListener('click', () => {
-      //CONDICIONAL QUE SE PUEDE CLICKEAR SIN LIMITES USANDO LOCALSTORAGE
-      if(typeof(Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount)+1;
-            let contador= localStorage.clickcount;
-            btnLike.value ="like (" + contador +")";
-            btnLike.style.backgroundColor="green";
-            console.log(contador);
-            resp.innerHTML =contador;
-        } } else {
-        resp.innerHTML = "Sorry, your browser does not support web storage...";
-    }
+        contador += + 1;
+        numeroClick.innerHTML= contador;
 
     })
 
@@ -301,7 +282,7 @@ box.addEventListener("change", () => {
     contPost.appendChild(btnDelete);
     //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
     contPost.appendChild(btnLike);
-    contPost.appendChild(resp);
+    contPost.appendChild(numeroClick);
     //padre agarra a los pequeños
     postsPrivados.appendChild(contPost);
    }
@@ -348,18 +329,6 @@ btnLogout2.addEventListener('click', () => {
   });
 })
 
-btnLogout3.addEventListener('click', () => {
-  firebase.auth().signOut().then(function () {
-    console.log('Cerro Sesion');
-    registro.classList.remove("hiden");
-    wall.classList.add("hiden");
-    bd.classList.add("hiden");
-    posts.classList.add("hiden");
-  }).catch(function (error) {
-    console.log('Error al cerrar Sesion');
-  });
-})
-
 btnGoogle.addEventListener('click', () => {
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.setCustomParameters({
@@ -379,19 +348,34 @@ btnGoogle.addEventListener('click', () => {
 })
 
 btnFacebook.addEventListener('click', () => {
-  var provider = new firebase.auth.FacebookAuthProvider();
-  provider.setCustomParameters({
-    'display': 'popup'
-  });
-  firebase.auth().signInWithPopup(provider)
-  .then(function (result) {
-    let user= result.user;
-    writeUserData(user.uid, user.displayName, user.email, user.photoURL)
-    ///console.log('Logreado con Fb')
-  }).catch(function (error) {
-    console.log(error.code);
-    console.log(error.message);
-    console.log(error.email);
-    console.log(error.credential);
-  });
+ 
+      var provider = new firebase.auth.FacebookAuthProvider();
+      provider.addScope("public_profile")
+      provider.setCustomParameters({
+        'display': 'popup'
+      });
+      firebase.auth().signInWithPopup(provider)
+      .then(function (result) {
+        let token = result.credential.accessToken;
+        let user= result.user
+        let name = result.user.displayName;
+        //cambie de vista
+        registro.classList.add("hiden");
+        wall.classList.remove("hiden");
+        bd.classList.remove("hiden");
+        posts.classList.remove("hiden");
+            username.innerHTML = `Bienvenidx, ${user.displayName}`;
+        writeUserData(user.uid, user.displayName, user.email, user.photoURL)
+        ///console.log('Logreado con Fb')
+      }).catch(function (error) {
+        
+        console.log(error.code);
+        console.log(error.message);
+        console.log(error.email);
+        console.log(error.credential);
+        if(errorCode == "auth/account-exist-with-different-credential"){
+          M.toast({html: "Existe un usuario con el mismo email"});
+        }
+      });
+   
 })
