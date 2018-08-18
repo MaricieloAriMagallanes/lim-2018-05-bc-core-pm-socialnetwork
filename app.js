@@ -238,13 +238,12 @@ box.addEventListener("change", () => {
     btnDelete.addEventListener('click',() => {
       let questions = confirm('¿Deseas eliminar este post?');
       if (questions == true) {
-        firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
+       firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
         firebase.database().ref().child('posts/' + newPost).remove();
 
-        while (posts.firstChild) posts.removeChild(posts.firstChild);
-
-
-        reload_page();
+        while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
+        
+       // reload_page();
       } else {
 
       };
