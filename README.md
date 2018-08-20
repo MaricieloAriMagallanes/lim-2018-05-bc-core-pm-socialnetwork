@@ -32,6 +32,19 @@ En este proyecto tendremos la oportunidad de acercarnos más a fondo a los futur
 
 ### DEFINICIÓN DEL PRODUCTO
 
+**Elementos basicos de una red social:**
+
+* Elemento Sociologico:
+Nuestros usuarios podran conectarse a nuestra red social facilmente, tan solo con
+contar con una conexion a internet, comenzando asi a entablar comunicacion con otros
+usuarios, obteniendo información y compartiendo información de interes.
+* Elemento tecnologico:
+Esta red social puede ser usada en dispositivos moviles, desktop y tablets,
+gracias a su diseño resposive.
+* Elemento Juridico:
+Los datos registrados en nuestra aplicación son confidenciales, solo se mostraran
+los nombres de cada usuario y el post publicado tendrá la opción de privacidad.
+
 **Principales usuarios:** 
 
 Nuestros principlaes usuarios son mujeres de 18 años a más, solteras o madres de familia que esten en busqueda de superación personal en el ámbito laboral y de educación.
@@ -49,6 +62,18 @@ La situación de desventaja que mantenemos las mujeres hoy en día en ámbitos d
 * Compartir información relevante como: eventos estudiantiles, convocatorias de trabajo, seminarios gratuitos, etc.
 * Mantener comunicación activa con personas interesadas sobre el tema.
 * Sentirán un equilibrio de oportunidades.
+
+**Principales funcionalidades del producto y cual es su prioridad:**
+
+* Publicar un post.
+* Poder poner like a una publicación.
+* Llevar un conteo de los likes.
+* Poder eliminar un post específico.
+* Poder publicar y mostrar los posts que son sólo para mi y para todo público.
+* Pedir confirmación antes de eliminar un post.
+* Al darle click en el botón editar, debe cambiar el texto por un input que permita editar el texto y cambiar el link por guardar.
+* Al darle guardar debe cambiar de vuelta a un texto normal pero con la información editada.
+* Al recargar la página se observa los posts editados
 
 **Verificando que el producto resuelva la problematica:**
 

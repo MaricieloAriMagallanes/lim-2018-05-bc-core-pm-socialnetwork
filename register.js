@@ -30,8 +30,11 @@ firebase.auth().createUserWithEmailAndPassword(email.value,password.value)
     if(errorCode === "auth/invalid-email"){
         M.toast({html: 'Correo invalido'})
       }else if(errorCode === "auth/wrong-password"){
-        M.toast({html: 'La contraseña es muy valida'})
-      }
+        M.toast({html: 'La contraseña es invalida'})
+      }else if(errorCode == "auth/weak-password"){
+        M.toast({html: 'Tú contraseña es muy debil'}) 
+      }else if(errorCode == "auth/email-already-in-use"){
+        M.toast({html: 'Este correo ya existe '})}  
   });
 });
 
