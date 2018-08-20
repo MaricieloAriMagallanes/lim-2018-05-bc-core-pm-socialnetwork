@@ -50,7 +50,7 @@ function writeNewPost(uid, body) {
 }
 /////////////aqui boton de publicar
 btnSave.addEventListener('click', (user) => {
-  if (post.value === "") {
+  if (post.value.trim() === "") {
     M.toast({
       html: 'No puedes publicar campos vacíos'
     });
@@ -63,7 +63,7 @@ btnSave.addEventListener('click', (user) => {
     btnUpdate.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
     var iconUpdate = document.createElement("i");
     iconUpdate.setAttribute("class", "large material-icons black-text")
-    var textUpdate = document.createTextNode("create")
+    var textUpdate = document.createTextNode("save")
     iconUpdate.appendChild(textUpdate);
     btnUpdate.appendChild(iconUpdate);
 
@@ -111,7 +111,6 @@ btnSave.addEventListener('click', (user) => {
 
       };
     });
-    ///////////////---------------------FIN DE PUBLICO------------------
 
     //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
     let contador = 0;
@@ -137,6 +136,9 @@ btnSave.addEventListener('click', (user) => {
 
       firebase.database().ref().update(updatesUser);
       firebase.database().ref().update(updatesPost);
+      M.toast({
+        html: 'Post editado y guardado'
+      });
     });
 
     contPost.appendChild(authorPost);
@@ -192,7 +194,7 @@ box.addEventListener("change", () => {
   };
   
 btnSave2.addEventListener("click",(user)=>{
-  if (post.value === "") {
+  if (post.value.trim() === "") {
     M.toast({
       html: 'No puedes publicar campos vacíos'
     });
@@ -208,7 +210,7 @@ btnSave2.addEventListener("click",(user)=>{
   btnUpdate.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
   var iconUpdate = document.createElement("i");
   iconUpdate.setAttribute("class", "large material-icons black-text")
-  var textUpdate = document.createTextNode("create")
+  var textUpdate = document.createTextNode("save")
   iconUpdate.appendChild(textUpdate);
   btnUpdate.appendChild(iconUpdate);
 
@@ -279,6 +281,9 @@ btnSave2.addEventListener("click",(user)=>{
 
     firebase.database().ref().update(updatesUser);
     firebase.database().ref().update(updatesPost);
+    M.toast({
+      html: 'Post editado y guardado'
+    });
   });
 
   contPost.appendChild(authorPost);
@@ -304,6 +309,9 @@ btnSignin.addEventListener('click', () => {
     .catch(function (error) {
       var errorCode = error.code;
       var errorMessage = error.message;
+      if(errorCode == "auth/wrong-password"){
+        M.toast({html: "Contraseña invalida"});
+      }
       console.log(errorCode)
 
     });
