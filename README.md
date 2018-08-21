@@ -35,9 +35,7 @@ En este proyecto tendremos la oportunidad de acercarnos más a fondo a los futur
 **Elementos basicos de una red social:**
 
 * Elemento Sociologico:
-Nuestros usuarios podran conectarse a nuestra red social facilmente, tan solo con
-contar con una conexion a internet, comenzando asi a entablar comunicacion con otros
-usuarios, obteniendo información y compartiendo información de interes.
+Nuestros usuarios podran conectarse a nuestra red social facilmente, tan solo contando con una conexión a internet, comenzando asi a entablar comunicación con otros usuarios, obteniendo información y compartiendo información de interes.
 * Elemento tecnologico:
 Esta red social puede ser usada en dispositivos moviles, desktop y tablets,
 gracias a su diseño resposive.
@@ -63,7 +61,7 @@ La situación de desventaja que mantenemos las mujeres hoy en día en ámbitos d
 * Mantener comunicación activa con personas interesadas sobre el tema.
 * Sentirán un equilibrio de oportunidades.
 
-**Principales funcionalidades del producto y cual es su prioridad:**
+**Principales funcionalidades del producto:**
 
 * Publicar un post.
 * Poder poner like a una publicación.
@@ -252,6 +250,28 @@ Conclusiones:
 * El usuario pensó que el simbolo del ojo era algun logo o icono y no le dio importancia, piensa que no es util.
 
 [Ver el testing](https://drive.google.com/open?id=1gUJdO7M87Zl-2q_AMGMBKWriep4S9tXL)
+
+**Testing HTML**
+
+![test con usuarios](imagenes/test.jpg)
+
+Se observó lo siguiente:
+
+* Pudieron registrarse con facilidad.
+* Pudieron ingresar con google y facebook, sin problemas.
+* Al ingresar a su cuenta pudieron realizar una publicación o varias 
+en modo privado o publico.
+* Se pudo editar una publicacion realizada y tambien eliminarla sin 
+ningun problema.
+* Pudieron darle like a su post.
+
+Conclusiones:
+
+Pudimos comprobar que las funcionalidades de nuestra red social 
+cumplian su función.
+
+Se sugirió por parte de una usuaria, que se debería adicionar la opción
+de deslike a una publicación.
 
 ## Referencias:
 
