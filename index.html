@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +9,8 @@
   <link type="text/css" rel="stylesheet" href="materialize.min.css" media="all" />
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <div id="registro" class="container">
-
     <div class="row">
       <div class="col s12 m6 offset-m3">
           <div class="img">
@@ -60,15 +57,11 @@
               <a href="register.html" id="register"> REGISTRATE </a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
-
   </div>
-
   <div class="hiden muro" id="wall">
-
     <div class="row">
       <!--navcompletp-->
       <nav>
@@ -92,7 +85,6 @@
           </ul>
         </div>
       </nav>
-
       <ul class="sidenav" id="mobile-demo">
         <li>
           <a href="sass.html">Mural</a>
@@ -107,14 +99,10 @@
       <!-- nav acaba -->
       <div class="col s12 m6 offset-m3">
         <div id="login">
-
           <h4 class="black-text">MURAL</h4>
           <p id="user_name"></p>
-
         </div>
-
         <!--Base de datos-->
-
         <div id="bd">
            <textarea name="Publicacion" id="post" class="textarea" cols="30" rows="10" placeholder="Escribe una publicación"></textarea>
            <label for="checkbox">
@@ -133,7 +121,6 @@
         <div id="alerta" class="hiden">
           <span id="alert"> * No es posible publicar un campo vacío.</span>
         </div>
-
         <!--FINAL DE NOTIFICACION-->
         <div id="posts" class="hiden">
             <input type="button" value="PUBLICAR" id="btnSave" class="btn botonmodelo">
@@ -162,11 +149,9 @@
         messagingSenderId: "546606427749"
       };
       firebase.initializeApp(config);
-
     </script>
     <script src="jquery-3.3.1.min.js"></script>
     <script src="materialize.min.js"></script>
     <script src="app.js"></script>
 </body>
-
 </html>
