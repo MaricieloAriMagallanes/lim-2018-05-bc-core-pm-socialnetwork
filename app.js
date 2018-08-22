@@ -21,7 +21,6 @@ const box = document.getElementById("checkbox");
 $(document).ready(function () {
   $('.sidenav').sidenav();
 });
-/////////////777------------------------PUBLICO-----------------
 function writeUserData(userId, name, email, imageUrl) {
   firebase.database().ref('users/' + userId).set({
     username: name,
