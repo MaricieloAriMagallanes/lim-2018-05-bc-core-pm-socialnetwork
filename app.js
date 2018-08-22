@@ -29,6 +29,30 @@ function writeUserData(userId, name, email, imageUrl) {
     profile_picture: imageUrl
   });
 }
+function allData(userId) {
+  var areaTs = document.getElementsByClassName('areaT');
+   for (let i = 0; i< areaTs.length; i++) {
+    areaTs[i].remove();
+   }
+ var postsAntiguos= firebase.database().ref('posts/');
+ postsAntiguos.on('child_added', function(snapshot){
+   var antiguo = snapshot.val();
+   var keys=Object.values(antiguo);
+   console.log(keys[0]);
+   //for(let value of keys){
+
+     //var k= value;
+     //var body = antiguo[k].body;
+     //console.log(k);
+     let areaTexto= document.createElement('textarea');
+     let  textoo = document.createTextNode(keys[0]);
+     areaTexto.setAttribute('class','areaT')
+     areaTexto.appendChild(textoo);
+     prueba.appendChild(areaTexto);
+   //}
+
+ });
+}
 
 function writeNewPost(uid, body) {
   // A post entry.
@@ -57,6 +81,7 @@ btnSave.addEventListener('click', (user) => {
     var userEmail = firebase.auth().currentUser.email;
     var userId = firebase.auth().currentUser.uid;
     const newPost = writeNewPost(userId, post.value);
+    allData(userId);
 
     var btnUpdate = document.createElement("a");
     btnUpdate.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
@@ -231,9 +256,10 @@ box.addEventListener("change", () => {
     var textPost = document.createElement('textarea')
     textPost.setAttribute("id", newPost);
 
+<<<<<<< HEAD
     textPost.innerHTML = post.value;
-
-
+=======
+<<<<<<< HEAD
     btnDelete.addEventListener('click',() => {
       let questions = confirm('¿Deseas eliminar este post?');
       if (questions == true) {
@@ -244,6 +270,27 @@ box.addEventListener("change", () => {
         
        // reload_page();
       } else {
+=======
+  //FIN DE LOS BOTONES
+>>>>>>> 45e13683eee640dede66c681acc9ac439afecaa8
+
+
+    btnDelete.addEventListener('click',() => {
+      let questions = confirm('¿Deseas eliminar este post?');
+      if (questions == true) {
+       firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
+        firebase.database().ref().child('posts/' + newPost).remove();
+
+<<<<<<< HEAD
+        while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
+        
+       // reload_page();
+      } else {
+=======
+    updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+    updatesPost['/posts/' + newPost] = nuevoPost;
+>>>>>>> 2e286e4c3527fd14b02b7529e2c595126294a5bd
+>>>>>>> 45e13683eee640dede66c681acc9ac439afecaa8
 
       };
     });
