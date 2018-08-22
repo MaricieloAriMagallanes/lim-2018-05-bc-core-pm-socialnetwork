@@ -3,6 +3,7 @@ body {
   background-repeat: no-repeat;
   background-position: fixed;
   background-size: 100% 100%;
+  color: #333333;
 }
 
 nav {
@@ -118,4 +119,7 @@ h4 {
 }
 #register{
   float: right;
+}
+.btnE{
+  position: relative;
 }

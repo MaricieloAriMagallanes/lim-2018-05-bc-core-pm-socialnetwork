@@ -45,16 +45,230 @@ function allData(userId) {
      //var k= value;
      //var body = antiguo[k].body;
      //console.log(k);
-     let areaTexto= document.createElement('textarea');
-     let  textoo = document.createTextNode(keys[0]);
-     areaTexto.setAttribute('class','areaT')
-     areaTexto.appendChild(textoo);
-     prueba.appendChild(areaTexto);
+    //botones 4 y el contador de likes 
+   var btnE = document.createElement("a");
+   btnE.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+   var textE = document.createTextNode("Editar")
+   btnE.appendChild(textE);
+
+    var btnUpdate = document.createElement("a");
+    btnUpdate.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+    var iconUpdate = document.createElement("i");
+    iconUpdate.setAttribute("class", "large material-icons black-text")
+    var textUpdate = document.createTextNode("save")
+    iconUpdate.appendChild(textUpdate);
+    btnUpdate.appendChild(iconUpdate);
+
+    var btnDelete = document.createElement("a");
+    btnDelete.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+    var iconDelete = document.createElement("i");
+    iconDelete.setAttribute("class", "large material-icons black-text")
+    var textDelete = document.createTextNode("delete")
+    iconDelete.appendChild(textDelete);
+    btnDelete.appendChild(iconDelete);
+    //Creamos los botones de like
+    var btnLike = document.createElement("a");
+    btnLike.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+    var iconLike = document.createElement("i");
+    iconLike.setAttribute("class", "large material-icons red-text");
+    var textLike = document.createTextNode("favorite");
+    iconLike.appendChild(textLike);
+    btnLike.appendChild(iconLike);
+    //creamos el div del like---------------------------------------------------------------------------
+    let numeroClick = document.createElement("span");
+  
+
+    var contPost = document.createElement('div');
+    let areaTexto= document.createElement('textarea');
+    let  textoo = document.createTextNode(keys[0]);
+    areaTexto.setAttribute('class','areaT');
+    areaTexto.setAttribute("disabled", "false");
+    areaTexto.appendChild(textoo);
+    contPost.appendChild(areaTexto);
+  
+
+    btnE.addEventListener("click", ()=>{
+      areaTexto.focus();
+      areaTexto.removeAttribute("disabled", "false");
+    });
+    btnDelete.addEventListener('click', () => {
+      let questions = confirm('¿Deseas eliminar este post?');
+      if (questions == true) {
+        firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
+        firebase.database().ref().child('posts/' + newPost).remove();
+
+        while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
+
+      } else {
+
+      };
+    });
+
+    //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
+    let contador = 0;
+    btnLike.addEventListener('click', () => {
+     contador += + 1;
+     numeroClick.innerHTML= contador;
+
+    })
+
+    //FIN DE LOS BOTONES
+
+    btnUpdate.addEventListener('click', () => {
+      const newUpdate = document.getElementById(newPost);
+      const nuevoPost = {
+        body: newUpdate.value,
+      };
+
+      var updatesUser = {};
+      var updatesPost = {};
+
+      updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+      updatesPost['/posts/' + newPost] = nuevoPost;
+
+      firebase.database().ref().update(updatesUser);
+      firebase.database().ref().update(updatesPost);
+      M.toast({
+        html: 'Post editado y guardado'
+      });
+      textPost.setAttribute("disabled", "false");
+    });
+
+
+    contPost.appendChild(areaTexto);
+    contPost.appendChild(btnUpdate);
+    contPost.appendChild(btnDelete);
+    //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
+    contPost.appendChild(btnLike);
+    //resultado de la umatoria de loslikes-----------------------------------------------------
+    contPost.appendChild(numeroClick);
+    contPost.appendChild(btnE);
+    prueba.appendChild(contPost);
    //}
 
  });
 }
 
+
+function userData(userId) {
+  var areaTs = document.getElementsByClassName('areaT');
+   for (let i = 0; i< areaTs.length; i++) {
+    areaTs[i].remove();
+   }
+ var postsAntiguos= firebase.database().ref('user-posts/' + userId);
+ postsAntiguos.on('child_added', function(snapshot){
+   var antiguo = snapshot.val();
+   var keys=Object.values(antiguo);
+   console.log(keys[0]);
+   //for(let value of keys){
+ 
+     //var k= value;
+     //var body = antiguo[k].body;
+     //console.log(k);
+
+     var btnE = document.createElement("a");
+   btnE.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+   var textE = document.createTextNode("Editar")
+   btnE.appendChild(textE);
+
+    var btnUpdate = document.createElement("a");
+    btnUpdate.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+    var iconUpdate = document.createElement("i");
+    iconUpdate.setAttribute("class", "large material-icons black-text")
+    var textUpdate = document.createTextNode("save")
+    iconUpdate.appendChild(textUpdate);
+    btnUpdate.appendChild(iconUpdate);
+
+    var btnDelete = document.createElement("a");
+    btnDelete.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+    var iconDelete = document.createElement("i");
+    iconDelete.setAttribute("class", "large material-icons black-text")
+    var textDelete = document.createTextNode("delete")
+    iconDelete.appendChild(textDelete);
+    btnDelete.appendChild(iconDelete);
+    //Creamos los botones de like
+    var btnLike = document.createElement("a");
+    btnLike.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+    var iconLike = document.createElement("i");
+    iconLike.setAttribute("class", "large material-icons red-text");
+    var textLike = document.createTextNode("favorite");
+    iconLike.appendChild(textLike);
+    btnLike.appendChild(iconLike);
+    //creamos el div del like---------------------------------------------------------------------------
+    let numeroClick = document.createElement("span");
+  
+
+    var contPost = document.createElement('div');
+    let areaTexto= document.createElement('textarea');
+    let  textoo = document.createTextNode(keys[0]);
+    areaTexto.setAttribute('class','areaT');
+    areaTexto.setAttribute("disabled", "false");
+    areaTexto.appendChild(textoo);
+    contPost.appendChild(areaTexto);
+  
+
+    btnE.addEventListener("click", ()=>{
+      areaTexto.focus();
+      areaTexto.removeAttribute("disabled", "false");
+    });
+    btnDelete.addEventListener('click', () => {
+      let questions = confirm('¿Deseas eliminar este post?');
+      if (questions == true) {
+        firebase.database().ref().child('/user-posts/' + userId + '/' + newPost).remove();
+        firebase.database().ref().child('posts/' + newPost).remove();
+
+        while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
+
+      } else {
+
+      };
+    });
+
+    //REALIZAMOS LOS EVENTOS DE LOS BOTONES LIKE
+    let contador = 0;
+    btnLike.addEventListener('click', () => {
+     contador += + 1;
+     numeroClick.innerHTML= contador;
+
+    })
+
+    //FIN DE LOS BOTONES
+
+    btnUpdate.addEventListener('click', () => {
+      const newUpdate = document.getElementById(newPost);
+      const nuevoPost = {
+        body: newUpdate.value,
+      };
+
+      var updatesUser = {};
+      var updatesPost = {};
+
+      updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+      updatesPost['/posts/' + newPost] = nuevoPost;
+
+      firebase.database().ref().update(updatesUser);
+      firebase.database().ref().update(updatesPost);
+      M.toast({
+        html: 'Post editado y guardado'
+      });
+      textPost.setAttribute("disabled", "false");
+    });
+
+
+    contPost.appendChild(areaTexto);
+    contPost.appendChild(btnUpdate);
+    contPost.appendChild(btnDelete);
+    //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
+    contPost.appendChild(btnLike);
+    //resultado de la umatoria de loslikes-----------------------------------------------------
+    contPost.appendChild(numeroClick);
+    contPost.appendChild(btnE);
+    prueba2.appendChild(contPost);
+     
+   //}
+ 
+ });
+ }
 function writeNewPost(uid, body) {
   // A post entry.
   var postData = {
@@ -83,6 +297,11 @@ btnSave.addEventListener('click', (user) => {
     var userId = firebase.auth().currentUser.uid;
     const newPost = writeNewPost(userId, post.value);
     allData(userId);
+
+   var btnE = document.createElement("a");
+   btnE.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+   var textE = document.createTextNode("Editar")
+   btnE.appendChild(textE);
 
     var btnUpdate = document.createElement("a");
     btnUpdate.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
@@ -117,11 +336,15 @@ btnSave.addEventListener('click', (user) => {
     //Aqui acabamos la creacion de botones de like
     var contPost = document.createElement('div');
     var textPost = document.createElement('textarea')
+    textPost.setAttribute("disabled", "false");
     textPost.setAttribute("id", newPost);
 
     textPost.innerHTML = post.value;
-
-
+    
+    btnE.addEventListener("click", ()=>{
+      textPost.focus();
+      textPost.removeAttribute("disabled", "false");
+    });
     btnDelete.addEventListener('click', () => {
       let questions = confirm('¿Deseas eliminar este post?');
       if (questions == true) {
@@ -130,8 +353,6 @@ btnSave.addEventListener('click', (user) => {
 
         while (contPost.firstChild) contPost.removeChild(contPost.firstChild);
 
-
-        
       } else {
 
       };
@@ -148,6 +369,12 @@ btnSave.addEventListener('click', (user) => {
     //FIN DE LOS BOTONES
 
     btnUpdate.addEventListener('click', () => {
+      if(textPost.value == ""){
+        M.toast({
+          html: 'No puedes guardar post vacios'
+        });
+      }
+      else {
       const newUpdate = document.getElementById(newPost);
       const nuevoPost = {
         body: newUpdate.value,
@@ -164,6 +391,8 @@ btnSave.addEventListener('click', (user) => {
       M.toast({
         html: 'Post editado y guardado'
       });
+      textPost.setAttribute("disabled", "false");
+    }
     });
 
     contPost.appendChild(authorPost);
@@ -174,6 +403,7 @@ btnSave.addEventListener('click', (user) => {
     contPost.appendChild(btnLike);
     //resultado de la umatoria de loslikes-----------------------------------------------------
     contPost.appendChild(numeroClick);
+    contPost.appendChild(btnE);
     //padre agarra a los pequeños
     posts.appendChild(contPost);
 
@@ -230,6 +460,11 @@ btnSave2.addEventListener("click",(user)=>{
   var userEmail = firebase.auth().currentUser.email;
   var userId = firebase.auth().currentUser.uid;
   const newPost = writeNewPost(userId, post.value);
+  userData(userId);
+  var btnE = document.createElement("a");
+  btnE.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
+  var textE = document.createTextNode("Editar")
+  btnE.appendChild(textE);
 
   var btnUpdate = document.createElement("a");
   btnUpdate.setAttribute("class", "btn-flat waves-effect btn-floating btn-large");
@@ -264,11 +499,14 @@ btnSave2.addEventListener("click",(user)=>{
   //Aqui acabamos la creacion de botones de like
   var contPost = document.createElement('div');
   var textPost = document.createElement('textarea')
+  textPost.setAttribute("disabled", "false");
   textPost.setAttribute("id", newPost);
 
   textPost.innerHTML = post.value;
 
-
+  btnE.addEventListener("click", ()=>{
+    textPost.removeAttribute("disabled", "false");
+  });
   btnDelete.addEventListener('click',() => {
     let questions = confirm('¿Deseas eliminar este post?');
     if (questions == true) {
@@ -293,6 +531,12 @@ btnSave2.addEventListener("click",(user)=>{
   //FIN DE LOS BOTONES
 
   btnUpdate.addEventListener('click', () => {
+    if(textPost.value == ""){
+      M.toast({
+        html: 'No puedes guardar post vacios'
+      });
+    }
+    else {
     const newUpdate = document.getElementById(newPost);
     const nuevoPost = {
       body: newUpdate.value,
@@ -309,6 +553,8 @@ btnSave2.addEventListener("click",(user)=>{
     M.toast({
       html: 'Post editado y guardado'
     });
+    textPost.setAttribute("disabled", "false");
+  }
   });
 
   contPost.appendChild(authorPost);
@@ -318,6 +564,7 @@ btnSave2.addEventListener("click",(user)=>{
   //PONEMOS PARA QUE SALGA LOS BOTONES DE LIKE Y DISLIKE
   contPost.appendChild(btnLike);
   contPost.appendChild(numeroClick);
+  contPost.appendChild(btnE);
   //padre agarra a los pequeños
   postsPrivados.appendChild(contPost);
  }
